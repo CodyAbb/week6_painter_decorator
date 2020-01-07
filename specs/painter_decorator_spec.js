@@ -9,6 +9,7 @@ describe('Decorator', function(){
   let paintCan1;
   let room1;
   let room2;
+  let room3;
   let paintCan2;
 
   beforeEach(function(){
@@ -17,6 +18,7 @@ describe('Decorator', function(){
     paintCan2 = new PaintCan(0);
     room1 = new Room(20);
     room2 = new Room(10);
+    room3 = new Room(5);
   })
 
   it('should have no paint stock at start', function(){
@@ -60,6 +62,13 @@ describe('Decorator', function(){
     decorator.canPaintRoom(room2);
     const actual = room2.isPainted;
     assert.strictEqual(actual, true);
+  });
+
+  it('should be able to decrease amount of paint when decorating room', function(){
+    decorator.addPaintToStock(paintCan1);
+    decorator.decorateRoom(room3);
+    const actual = decorator.totalLitreOfPaint();
+    assert.strictEqual(actual, 5);
   });
 
   describe('paint', function(){

@@ -31,5 +31,11 @@ Decorator.prototype.canPaintRoom = function (room) {
   }
 };
 
+Decorator.prototype.decorateRoom = function (room) {
+  this.canPaintRoom(room);
+  this.paintCans[0].volume - room.area;
+  console.log(this.paintCans[0].volume);
+};
+
 
 module.exports = Decorator;
