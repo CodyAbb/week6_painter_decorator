@@ -9,10 +9,12 @@ describe('Decorator', function(){
   let paintCan1;
   let room1;
   let room2;
+  let paintCan2;
 
   beforeEach(function(){
     decorator = new Decorator();
     paintCan1 = new PaintCan(10);
+    paintCan2 = new PaintCan(0);
     room1 = new Room(20);
     room2 = new Room(10);
   })
@@ -58,6 +60,24 @@ describe('Decorator', function(){
     decorator.canPaintRoom(room2);
     const actual = room2.isPainted;
     assert.strictEqual(actual, true);
+  });
+
+  describe('paint', function(){
+    it('should check if empty', function(){
+      const actual = paintCan1.checkEmpty();
+      assert.strictEqual(actual, false);
+    });
+
+    it('should check if empty', function(){
+      const actual = paintCan2.checkEmpty();
+      assert.strictEqual(actual, true);
+    });
+
+    it('should be able to empty itself', function(){
+      paintCan1.emptyCan();
+      const actual = paintCan1.volume;
+      assert.strictEqual(actual, 0);
+    })
   });
 
   describe('room', function(){
