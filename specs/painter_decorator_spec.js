@@ -22,6 +22,12 @@ describe('Decorator', function(){
     decorator.addPaintToStock(paintCan1);
     const actual = decorator.paintCans.length;
     assert.strictEqual(actual, 1);
+  });
+
+  it('should be able to calculate total litre of paint', function(){
+    decorator.addPaintToStock(paintCan1);
+    const actual = decorator.totalLitreOfPaint();
+    assert.strictEqual(actual, 10);
   })
 
 });
