@@ -24,5 +24,12 @@ Decorator.prototype.hasEnoughPaint = function (room) {
   }
 };
 
+Decorator.prototype.canPaintRoom = function (room) {
+  const hasPaint = this.hasEnoughPaint(room);
+  if (hasPaint === true) {
+    room.paintRoom();
+  }
+};
+
 
 module.exports = Decorator;

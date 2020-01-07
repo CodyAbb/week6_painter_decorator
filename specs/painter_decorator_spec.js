@@ -44,12 +44,32 @@ describe('Decorator', function(){
     decorator.addPaintToStock(paintCan1);
     const actual = decorator.hasEnoughPaint(room2);
     assert.strictEqual(actual, true);
-  })
+  });
+
+  it('should paint room if there is enough paint in stock, false', function(){
+    decorator.addPaintToStock(paintCan1);
+    decorator.canPaintRoom(room1);
+    const actual = room1.isPainted;
+    assert.strictEqual(actual, false);
+  });
+
+  it('should paint room if there is enough paint in stock, true', function(){
+    decorator.addPaintToStock(paintCan1);
+    decorator.canPaintRoom(room2);
+    const actual = room2.isPainted;
+    assert.strictEqual(actual, true);
+  });
 
   describe('room', function(){
     it('should start not painted', function(){
       const actual = room1.isPainted;
       assert.strictEqual(actual, false);
+    });
+
+    it('should be able to be painted', function(){
+      room1.paintRoom();
+      const actual = room1.isPainted
+      assert.strictEqual(actual, true);
     })
   })
 
